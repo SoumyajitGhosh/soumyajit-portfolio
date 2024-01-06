@@ -1,4 +1,6 @@
-const NavigationDots = (active: string) => {
+const NavigationDots = ({active}: {
+  active: string
+}) => {
   return (
     <div className="app__navigation">
       {["home", "about", "work", "skills", "testimonial", "contact"].map(
