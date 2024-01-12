@@ -2,41 +2,73 @@ import React, { useState } from "react";
 
 import { images } from "../../constants";
 import { AppWrap, MotionWrap } from "../../wrapper";
+import emailjs from "@emailjs/browser";
 // import { client } from '../../client';
 import "./Footer.scss";
 
+type FormData = {
+  username: string;
+  email: string;
+  message: string;
+};
+
 const Footer = () => {
-  const [formData, setFormData] = useState({
-    name: "",
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    username: "",
     email: "",
     message: "",
   });
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  //   const { username, email, message } = formData;
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
 
-  //   const handleChangeInput = (e) => {
-  //     const { name, value } = e.target;
-  //     setFormData({ ...formData, [name]: value });
-  //   };
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     setLoading(true);
 
-    // const contact = {
-    //   _type: 'contact',
-    //   name: formData.username,
-    //   email: formData.email,
-    //   message: formData.message,
-    // };
+    emailjs
+      .send(
+        // import.meta.env.REACT_APP_EMAILJS_SERVICE_ID
+        "service_xqxk6ue",
+        // import.meta.env.REACT_APP_EMAILJS_TEMPLATE_ID
+        "template_egzz8rv",
+        {
+          from_name: formData.username,
+          to_name: "Soumyajit Ghosh",
+          from_email: formData.email,
+          to_email: "soumyajitghosh.official@gmail.com",
+          message: formData.message,
+        },
+        // import.meta.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        "7i31xO6AKmAlvnm8U"
+      )
+      .then(
+        () => {
+          setLoading(false);
+          setIsFormSubmitted(true);
+          setFormData({
+            username: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
 
-    // client.create(contact)
-    //   .then(() => {
-    //     setLoading(false);
-    //     setIsFormSubmitted(true);
-    //   })
-    //   .catch((err) => console.log(err));
+          alert("Ahh, something went wrong. Please try again.");
+        }
+      );
   };
 
   return (
@@ -46,35 +78,55 @@ const Footer = () => {
       <div className="app__footer-cards">
         <div className="app__footer-card ">
           <img src={images.email} alt="email" />
-          <a href="mailto:hello@micael.com" className="p-text">
-            hello@micael.com
+          <a href="mailto:soumyajitghosh.official@gmail.com" className="p-text">
+            soumyajitghosh.official@gmail.com
           </a>
         </div>
         <div className="app__footer-card">
           <img src={images.mobile} alt="phone" />
-          <a href="tel:+1 (123) 456-7890" className="p-text">
-            +1 (123) 456-7890
+          <a href="tel:+91 9674447085" className="p-text">
+            +91 9674447085
           </a>
         </div>
       </div>
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <div className="app__flex">
-            {/* <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} /> */}
+            <input
+              className="p-text"
+              type="text"
+              placeholder="Your Name"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+            />
           </div>
           <div className="app__flex">
-            {/* <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} /> */}
+            <input
+              className="p-text"
+              type="email"
+              placeholder="Your Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
           </div>
           <div>
-            {/* <textarea
+            <textarea
               className="p-text"
               placeholder="Your Message"
-              value={message}
+              value={formData.message}
               name="message"
-              onChange={handleChangeInput}
-            /> */}
+              // onChange={(e: React.ChangeEvent): void => handleChange(e)}
+              onChange={handleChange}
+            />
           </div>
-          <button type="button" className="p-text" onClick={handleSubmit}>
+          <button
+            type="button"
+            className="p-text"
+            // onClick={(e: React.ChangeEvent<HTMLElement>): void => handleSubmit}
+            onClick={handleSubmit}
+          >
             {!loading ? "Send Message" : "Sending..."}
           </button>
         </div>

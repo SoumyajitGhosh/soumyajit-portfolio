@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+
 import { AppWrap, MotionWrap } from "../../wrapper";
 // import { urlFor, client } from '../../client';
 import { techExperiences, technologies } from "../../constants";
 import "./Skills.scss";
+import "react-vertical-timeline-component/style.min.css";
 
 type Experiences = {
   title: string;
@@ -51,43 +57,45 @@ const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
-        {/* <div className="app__skills-exp">
-          {experiences.map((experience) => (
-            <motion.div className="app__skills-exp-item" key={experience.date}>
-              <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.date}</p>
-              </div>
-              <motion.div className="app__skills-exp-works">
-                {experiences.map((work) => (
-                  <>
-                    <motion.div
-                      whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
-                      className="app__skills-exp-work"
-                      data-tip
-                      data-for={work.title}
-                      key={work.title}
+        <div className="vertical-timeline__main">
+          <VerticalTimeline lineColor="rgba(107, 118, 136, 0.6)" animate={true}>
+            {experiences.map((experience) => (
+              <VerticalTimelineElement
+                className="vertical-timeline__element-hover"
+                contentArrowStyle={{
+                  borderRight: "7px solid rgba(107, 118, 136, 0.8)",
+                }}
+                date={experience.date}
+                iconStyle={{ background: experience.iconBg }}
+                icon={
+                  <div className="vertical-element__icon-div">
+                    <img src={experience.icon} alt={experience.company_name} />
+                  </div>
+                }
+              >
+                  <h3 className="text-white text-[24px] font-bold">
+                    {experience.title}
+                  </h3>
+                  <p
+                    className="text-secondary text-[16px] font-semibold"
+                    style={{ margin: 0 }}
+                  >
+                    {experience.company_name}
+                  </p>
+                <ul className="mt-5 list-disc ml-5 space-y-2">
+                  {experience.points.map((point, index) => (
+                    <li
+                      key={`experience-point-${index}`}
+                      className="text-white-100 text-[14px] pl-1 tracking-wider"
                     >
-                      <h4 className="bold-text">{work.title}</h4>
-                      <p className="p-text">{work.company_name}</p>
-                    </motion.div>
-                    
-                    <ReactTooltip
-                      id={work.title}
-                      effect="solid"
-                      // effect="solid"
-                      arrowColor="#fff"
-                      className="skills-tooltip"
-                    >
-                      {"work.points"}
-                    </ReactTooltip>
-                  </>
-                ))}
-              </motion.div>
-            </motion.div>
-          ))}
-        </div> */}
-        
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </VerticalTimelineElement>
+            ))}
+          </VerticalTimeline>
+        </div>
       </div>
     </>
   );

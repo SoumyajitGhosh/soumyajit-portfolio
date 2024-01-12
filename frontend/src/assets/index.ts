@@ -24,8 +24,8 @@ import topgram from "./topgram.jpg";
 
 export {
   logo,
-  backend,
   web,
+  backend,
   github,
   menu,
   close,
