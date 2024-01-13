@@ -1,6 +1,4 @@
 import {
-  backend,
-  web,
   javascript,
   html,
   css,
@@ -13,6 +11,7 @@ import {
   tradelabtech,
   uno_bank,
   topgram,
+  climasnap,
   jira,
   rest,
 } from "../assets";
@@ -34,16 +33,16 @@ export const navLinks = [
   },
 ];
 
-const services = [
-  {
-    title: "Frontend Developer",
-    icon: web,
-  },
-  {
-    title: "Full Stack Developer",
-    icon: backend,
-  },
-];
+// const services = [
+//   {
+//     title: "Frontend Developer",
+//     icon: web,
+//   },
+//   {
+//     title: "Full Stack Developer",
+//     icon: backend,
+//   },
+// ];
 
 const technologies = [
   {
@@ -158,38 +157,70 @@ const projects = [
     name: "TopGram",
     description:
       "TopGram is a dynamic social media platform that serves as an Instagram clone, offering users a seamless and captivating photosharing experience. Developed using the MERN stack, which stands for MongoDB, Express.js, React.js, and Node.js, TopGram leverages the power of these technologies to create a feature-rich application.",
-    // tags: [
-    //   {
-    //     name: "mongodb",
-    //     color: "green-text-gradient",
-    //   },
-    //   {
-    //     name: "express",
-    //     color: "pink-text-gradient",
-    //   },
-    //   {
-    //     name: "react",
-    //     color: "blue-text-gradient",
-    //   },
-    //   {
-    //     name: "nodejs",
-    //     color: "pink-text-gradient",
-    //   },
+    tags: [
+      {
+        name: "mongodb",
+        color: "green-text-gradient",
+      },
+      {
+        name: "express",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "nodejs",
+        color: "pink-text-gradient",
+      },
 
-    //   {
-    //     name: "material-ui",
-    //     color: "green-text-gradient",
-    //   },
-    // ],
-    tags: ["Web App"],
+      {
+        name: "material-ui",
+        color: "green-text-gradient",
+      },
+    ],
     image: topgram,
     source_code_link: "https://github.com/SoumyajitGhosh/topgram-app",
+  },
+  {
+    name: "Climasnap",
+    description:
+      "ClimaSnap, a dynamic weather companion crafted with GraphQL and Next.js, delivers swift and accurate forecasts. Experience the future of meteorology with prompt responses, powered by OpenAI APIs, providing a seamless blend of technology and atmospheric insights.",
+    tags: [
+      {
+        name: "chatgpt",
+        color: "green-text-gradient",
+      },
+      {
+        name: "nextjs",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "tremor",
+        color: "green-text-gradient",
+      },
+      {
+        name: "stepzen",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "graphql",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: climasnap,
+    source_code_link: "https://github.com/SoumyajitGhosh/climasnap",
   },
 ];
 
 export {
   images,
-  services,
+  // services,
   technologies,
   techExperiences,
   testimonials,

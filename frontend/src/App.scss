@@ -89,7 +89,7 @@
   align-items: flex-end;
 
   p {
-    text-transform: uppercase;
+    text-transform: none;
     color: var(--black-color);
   }
 }
@@ -119,6 +119,7 @@
   text-align: left;
   color: var(--gray-color);
   line-height: 1.5;
+  text-transform: none;
 
   @media screen and (min-width: 2000px) {
     font-size: 1.75rem;

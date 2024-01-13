@@ -1,6 +1,4 @@
 import logo from "./logo.png";
-import backend from "./backend.png";
-import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
@@ -21,11 +19,10 @@ import tradelabtech from "./company/tradelabtech.png";
 import uno_bank from "./company/uno_bank.png";
 
 import topgram from "./topgram.jpg";
+import climasnap from "./climasnap.jpg";
 
 export {
   logo,
-  web,
-  backend,
   github,
   menu,
   close,
@@ -41,6 +38,7 @@ export {
   tradelabtech,
   uno_bank,
   topgram,
+  climasnap,
   jira,
   rest,
 };
