@@ -20,14 +20,31 @@ type Project = {
   source_code_link: string;
 };
 
+// Utility function to check if the device is mobile
+const isMobileDevice = () => {
+  return window.innerWidth <= 768; // Change the width as per your requirement
+};
+
 const Work = () => {
   const [works, setWorks] = useState<Project[]>([]);
   const [page, setPage] = useState<number>(0);
-  const worksPerPage = 3;
+  const [isMobile, setIsMobile] = useState<boolean>(isMobileDevice());
 
   useEffect(() => {
     setWorks(projects);
+
+    // Add a resize event listener to handle screen size changes
+    const handleResize = () => {
+      setIsMobile(isMobileDevice());
+    };
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener on unmount
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Adjust worksPerPage based on device type
+  const worksPerPage = isMobile ? 1 : 3;
 
   // Calculate the displayed works based on the current page
   const displayedWorks = works.slice(
@@ -120,6 +137,7 @@ const Work = () => {
               }`}
               style={{
                 backgroundColor: page === index ? "#313BAC" : "#C4C4C4",
+                cursor: "pointer",
               }}
             ></div>
           )
