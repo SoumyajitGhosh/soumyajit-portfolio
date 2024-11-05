@@ -17,6 +17,7 @@ import {
   prisma,
   postgres,
   devslog,
+  quickpayz,
 } from "../assets";
 
 import images from "./images";
@@ -229,7 +230,41 @@ const projects = [
       },
     ],
     image: devslog,
+    deploy_link: "https://medium-clone-sg-tech.vercel.app",
     source_code_link: "https://github.com/SoumyajitGhosh/medium-clone",
+  },
+  {
+    name: "QuickPayz",
+    description:
+      "QuickPayz is a PayTM-inspired digital payment platform built for fast, secure transactions, featuring a modern tech stack with Next.js, Express, Prisma ORM, and Postgres. It offers user-friendly authentication, a merchant dashboard, and seamless money transfers with real-time updates and responsive design using Tailwind CSS.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "express",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "turborepo",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind css",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "prisma",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "postgres",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: quickpayz,
+    source_code_link: "https://github.com/SoumyajitGhosh/quickpayz",
   },
   {
     name: "Climasnap",
