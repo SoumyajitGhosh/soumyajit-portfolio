@@ -22,29 +22,18 @@ type Project = {
 
 const Work = () => {
   const [works, setWorks] = useState<Project[]>([]);
-  // const [filterWork, setFilterWork] = useState<Project[]>([]);
-  // const [activeFilter, setActiveFilter] = useState("All");
-  // const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [page, setPage] = useState<number>(0);
+  const worksPerPage = 3;
 
   useEffect(() => {
     setWorks(projects);
-    // setFilterWork(projects);
   }, []);
 
-  // const handleWorkFilter = (item: string) => {
-  //   setActiveFilter(item);
-  //   setAnimateCard({ y: 100, opacity: 0 });
-
-  //   setTimeout(() => {
-  //     setAnimateCard({ y: 0, opacity: 1 });
-
-  //     if (item === "All") {
-  //       setFilterWork(works);
-  //     } else {
-  //       setFilterWork(works.filter((work) => work.tags.includes(item)));
-  //     }
-  //   }, 500);
-  // };
+  // Calculate the displayed works based on the current page
+  const displayedWorks = works.slice(
+    page * worksPerPage,
+    page * worksPerPage + worksPerPage
+  );
 
   return (
     <>
@@ -52,28 +41,12 @@ const Work = () => {
         Personal <span>Projects</span> Section
       </h2>
 
-      {/* <div className="app__work-filter">
-        {["UI/UX", "Web App", "Mobile App", "React JS", "All"].map(
-          (item, index) => (
-            <div
-              key={index}
-              // onClick={() => handleWorkFilter(item)}
-              className={`app__work-filter-item app__flex p-text ${
-                activeFilter === item ? "item-active" : ""
-              }`}
-            >
-              {item}
-            </div>
-          )
-        )}
-      </div> */}
-
       <motion.div
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__work-portfolio"
       >
-        {works.map((work, index) => (
+        {displayedWorks.map((work, index) => (
           <div className="app__work-item app__flex" key={index}>
             <div className="app__work-img app__flex">
               <img src={work.image} alt={work.name} />
@@ -97,9 +70,7 @@ const Work = () => {
                       <AiFillEye />
                     </motion.div>
                   </a>
-                ) : (
-                  <></>
-                )}
+                ) : null}
                 <a
                   href={work.source_code_link}
                   target="_blank"
@@ -130,14 +101,30 @@ const Work = () => {
               <p className="p-text" style={{ marginTop: 10 }}>
                 {work.description}
               </p>
-
-              {/* <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
-              </div> */}
             </div>
           </div>
         ))}
       </motion.div>
+      <div
+        className="app__navigation"
+        style={{ display: "flex", flexDirection: "row" }}
+      >
+        {Array.from(
+          { length: Math.ceil(works.length / worksPerPage) },
+          (_, index) => (
+            <div
+              onClick={() => setPage(index)}
+              key={`section-${index}`}
+              className={`app__navigation-dot ${
+                page === index ? "active" : ""
+              }`}
+              style={{
+                backgroundColor: page === index ? "#313BAC" : "#C4C4C4",
+              }}
+            ></div>
+          )
+        )}
+      </div>
     </>
   );
 };
