@@ -14,12 +14,15 @@ import redux from "./redux.png";
 import tailwind from "./tailwind.png";
 import jira from "./jira.png";
 import rest from "./rest_api.png";
+import prisma from "./prisma.jpg";
+import postgres from "./postgres.jpeg";
 
 import tradelabtech from "./company/tradelabtech.png";
 import uno_bank from "./company/uno_bank.png";
 
-import topgram from "./topgram.jpg";
+import glimpsehub from "./glimpsehub.png";
 import climasnap from "./climasnap.jpg";
+import devslog from "./devslog.png";
 
 export {
   logo,
@@ -37,8 +40,11 @@ export {
   tailwind,
   tradelabtech,
   uno_bank,
-  topgram,
+  glimpsehub,
   climasnap,
+  devslog,
   jira,
   rest,
+  prisma,
+  postgres
 };
