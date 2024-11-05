@@ -32,8 +32,9 @@ const Header: React.FC = () => (
         </div>
 
         <div className="tag-cmp app__flex">
-          <p className="p-text">Web Developer</p>
-          <p className="p-text">Anime Protagonist</p>
+          <p className="p-text">Thorough Problem-Solver</p>
+          <p className="p-text">Consistently Dependable</p>
+          <p className="p-text">Diligent Builder</p>
           <p className="p-text">Stoic</p>
         </div>
       </div>
@@ -59,16 +60,18 @@ const Header: React.FC = () => (
       whileInView={scaleVariants.whileInView}
       className="app__header-circles"
     >
-      {[images.react, images.redux, images.sass].map((circle, index) => (
-        <motion.div
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.8 }}
-          className="circle-cmp app__flex"
-          key={`circle-${index}`}
-        >
-          <img src={circle} alt="profile_bg" />
-        </motion.div>
-      ))}
+      {[images.typescript, images.react, images.javascript, images.node].map(
+        (circle, index) => (
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}
+            className="circle-cmp app__flex"
+            key={`circle-${index}`}
+          >
+            <img src={circle} alt="profile_bg" />
+          </motion.div>
+        )
+      )}
     </motion.div>
   </div>
 );

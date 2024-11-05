@@ -10,12 +10,14 @@ import {
   git,
   tradelabtech,
   uno_bank,
-  topgram,
+  glimpsehub,
   climasnap,
   jira,
   rest,
+  prisma,
+  postgres,
+  devslog,
 } from "../assets";
-
 
 import images from "./images";
 
@@ -90,6 +92,14 @@ const technologies = [
     name: "Rest API",
     icon: rest,
   },
+  {
+    name: "Prisma ORM",
+    icon: prisma,
+  },
+  {
+    name: "PostgreSQL",
+    icon: postgres,
+  },
 ];
 
 const techExperiences = [
@@ -155,34 +165,71 @@ const testimonials = [
 
 const projects = [
   {
-    name: "TopGram",
+    name: "GlimpseHub",
     description:
-      "TopGram is a dynamic social media platform that serves as an Instagram clone, offering users a seamless and captivating photosharing experience. Developed using the MERN stack, which stands for MongoDB, Express.js, React.js, and Node.js, TopGram leverages the power of these technologies to create a feature-rich application.",
+      "GlimpseHub is a dynamic social media platform that serves as an Instagram clone, offering users a seamless and captivating photosharing experience. Developed using the MERN stack, which stands for MongoDB, Express.js, React.js, and Node.js, TopGram leverages the power of these technologies to create a feature-rich application.",
     tags: [
       {
-        name: "mongodb",
+        name: "react",
         color: "green-text-gradient",
       },
       {
-        name: "express",
+        name: "redux",
         color: "pink-text-gradient",
       },
       {
-        name: "react",
+        name: "formik",
         color: "blue-text-gradient",
       },
       {
-        name: "nodejs",
+        name: "react-spring",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "express",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mongodb",
         color: "pink-text-gradient",
       },
-
       {
-        name: "material-ui",
+        name: "cloudinary",
         color: "green-text-gradient",
       },
     ],
-    image: topgram,
-    source_code_link: "https://github.com/SoumyajitGhosh/topgram-app",
+    image: glimpsehub,
+    deploy_link: "https://glimpse-hub.vercel.app/",
+    source_code_link: "https://github.com/SoumyajitGhosh/GlimpseHub",
+  },
+  {
+    name: "DevsLog",
+    description:
+      "This project is a Medium.com clone built with React on the frontend and Cloudflare Workers on the backend, using TypeScript for a strongly-typed codebase. It leverages Prisma as the ORM with PostgreSQL for the database, zod library for validations and JWT for secure authentication.",
+    tags: [
+      {
+        name: "react",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "cloudflare workers",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "prisma",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "postgres",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: devslog,
+    source_code_link: "https://github.com/SoumyajitGhosh/medium-clone",
   },
   {
     name: "Climasnap",

@@ -20,8 +20,8 @@ const About = () => {
       <h2 className="head-text">
         {/* I Know that <span>Good Design</span> <br />
         means <span>Good Business</span> */}
-        <span>Code whisperer</span> by day, <br />
-        <span>gym bro</span> by night! 🚀
+        <span>Enthusiastic learner</span> by day, <br />
+        <span>fitness fanatic</span> by night! 🚀
       </h2>
 
       <div className="app__profiles">
@@ -36,13 +36,11 @@ const About = () => {
             Overview
           </h2>
           <p className="bold-text" style={{ marginTop: 10 }}>
-            Highly motivated Software Engineer with a strong background spanning
-            over two years, blending technical expertise with strategic
-            problem-solving acumen. Adept at translating complex ideas into
-            clear, concise communication. Recognized for a steadfast commitment
-            to accountability, transparent collaboration, and punctuality,
-            embodying a proactive and innovative approach to software
-            engineering.
+            Driven software developer with a passion for learning and creating
+            impactful digital experiences. From building user-friendly
+            interfaces to optimizing backend systems, I bring a blend of
+            curiosity and dedication to every project. When I’m not coding,
+            you’ll find me staying active and exploring new ways to grow.
           </p>
         </motion.div>
       </div>
