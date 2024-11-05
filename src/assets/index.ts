@@ -23,6 +23,7 @@ import uno_bank from "./company/uno_bank.png";
 import glimpsehub from "./glimpsehub.png";
 import climasnap from "./climasnap.jpg";
 import devslog from "./devslog.png";
+import quickpayz from "./quickpayz.png";
 
 export {
   logo,
@@ -43,6 +44,7 @@ export {
   glimpsehub,
   climasnap,
   devslog,
+  quickpayz,
   jira,
   rest,
   prisma,

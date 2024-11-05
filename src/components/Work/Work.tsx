@@ -16,6 +16,7 @@ type Project = {
   description: string;
   tags: Tags[];
   image: string;
+  deploy_link?: string;
   source_code_link: string;
 };
 
@@ -85,20 +86,20 @@ const Work = () => {
                 }}
                 className="app__work-hover app__flex"
               >
-                <a
-                  href={work.source_code_link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillEye />
-                  </motion.div>
-                </a>
+                {work.deploy_link ? (
+                  <a href={work.deploy_link} target="_blank" rel="noreferrer">
+                    <motion.div
+                      whileInView={{ scale: [0, 1] }}
+                      whileHover={{ scale: [1, 0.9] }}
+                      transition={{ duration: 0.25 }}
+                      className="app__flex"
+                    >
+                      <AiFillEye />
+                    </motion.div>
+                  </a>
+                ) : (
+                  <></>
+                )}
                 <a
                   href={work.source_code_link}
                   target="_blank"

@@ -59,12 +59,13 @@ const Skills = () => {
         </motion.div>
         <div className="vertical-timeline__main">
           <VerticalTimeline lineColor="rgba(107, 118, 136, 0.6)" animate={true}>
-            {experiences.map((experience) => (
+            {experiences.map((experience, idx) => (
               <VerticalTimelineElement
                 className="vertical-timeline__element-hover"
                 contentArrowStyle={{
                   borderRight: "7px solid rgba(107, 118, 136, 0.8)",
                 }}
+                key={idx}
                 date={experience.date}
                 iconStyle={{ background: experience.iconBg }}
                 icon={
@@ -73,15 +74,15 @@ const Skills = () => {
                   </div>
                 }
               >
-                  <h3 className="text-white text-[24px] font-bold">
-                    {experience.title}
-                  </h3>
-                  <p
-                    className="text-secondary text-[16px] font-semibold"
-                    style={{ margin: 0 }}
-                  >
-                    {experience.company_name}
-                  </p>
+                <h3 className="text-white text-[24px] font-bold">
+                  {experience.title}
+                </h3>
+                <p
+                  className="text-secondary text-[16px] font-semibold"
+                  style={{ margin: 0 }}
+                >
+                  {experience.company_name}
+                </p>
                 <ul className="mt-5 list-disc ml-5 space-y-2">
                   {experience.points.map((point, index) => (
                     <li
